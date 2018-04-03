@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/lightBlue"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context="app.com.roadhelper.MainActivity">
+
+
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginTop="40dp"
+        android:src="@drawable/helper_logo_full"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Road Helper App"
+        android:gravity="center"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="30dp"
+        android:textSize="18sp"
+        android:textColor="@color/colorPrimary"
+        android:layout_margin="10dp"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Your auto helper anywhere"
+        android:gravity="center"
+        android:textSize="14sp"
+        android:textColor="#7b7b7b"
+        android:layout_marginBottom="50dp"
+        android:layout_margin="10dp"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Loading.."
+        android:gravity="center"
+        android:textSize="12sp"
+        android:textColor="#c9c9c9"
+        android:layout_marginBottom="50dp"
+        android:layout_margin="10dp"
+        />
+
+</LinearLayout>

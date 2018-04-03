@@ -1,0 +1,96 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/ss"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:background="@color/lightBlue"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+
+
+    tools:context="app.com.roadhelper.MobileAutoRepair">
+
+    <!-- Login progress -->
+    <ProgressBar
+        android:id="@+id/login_progress"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:visibility="gone" />
+
+    <ImageView       android:layout_width="match_parent"
+        android:layout_height="180dp"
+
+        android:paddingTop="60dp"
+        android:src="@drawable/helper_logo_full"/>
+
+
+    <ScrollView
+        android:id="@+id/login_form"
+        android:layout_width="match_parent"
+
+
+
+        android:layout_marginTop="40px"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:background="@color/colorAccentLightBlue"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+
+
+
+            <LinearLayout
+                android:id="@+id/email_login_form"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="28sp"
+                    android:textStyle="bold"
+                    android:text="Mobile auto repair"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:layout_marginBottom="8dp"
+                    />
+
+                <Button
+                    style="?android:textAppearanceSmall"
+                    android:layout_width="match_parent"
+                    android:background="#a7e0a5"
+                    android:layout_margin="5dp"
+                    android:drawableRight="@android:drawable/ic_media_ff"
+                    android:textColor="#365c7b"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:id="@+id/battery_auto_btn"
+                    android:text="Battery"
+                    android:textStyle="bold" />
+
+                <Button
+                    style="?android:textAppearanceSmall"
+                    android:layout_width="match_parent"
+                    android:background="#a7e0a5"
+                    android:layout_margin="5dp"
+                    android:drawableRight="@android:drawable/ic_media_ff"
+                    android:textColor="#365c7b"
+                    android:id="@+id/tires_auto_btn"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:text="Tires"
+                    android:textStyle="bold" />
+
+
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

@@ -1,0 +1,186 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/ss"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:background="@color/lightBlue"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+
+
+    tools:context="app.com.roadhelper.LoginActivity">
+
+    <!-- Login progress -->
+    <ProgressBar
+        android:id="@+id/login_progress"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:visibility="gone" />
+
+    <ImageView       android:layout_width="match_parent"
+        android:layout_height="180dp"
+
+        android:paddingTop="60dp"
+        android:src="@drawable/helper_logo_full"/>
+
+
+    <ScrollView
+        android:id="@+id/login_form"
+        android:layout_width="match_parent"
+
+
+
+        android:layout_marginTop="40px"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:background="@color/colorAccentLightBlue"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+
+
+
+            <LinearLayout
+                android:id="@+id/email_login_form"
+                android:layout_width="match_parent"
+                android:padding="10dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+
+
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+               <LinearLayout
+                   android:layout_width="match_parent"
+                   android:orientation="vertical"
+                   android:layout_weight="1"
+                   android:id="@+id/common_issues_layout"
+                   android:clickable="true"
+                   android:background="@drawable/bg_button_menu"
+                   android:layout_height="200dp">
+               <ImageView
+                   android:layout_width="match_parent"
+                   android:layout_height="130dp"
+                   android:padding="10dp"
+                   android:src="@drawable/issues"
+                   android:scaleType="fitCenter"
+                   />
+                   <TextView
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:gravity="center"
+                       android:padding="8dp"
+                       android:text="Common issues Guide"/>
+
+               </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:clickable="true"
+                        android:background="@drawable/bg_button_menu"
+                        android:orientation="vertical"
+                        android:id="@+id/car_services_layout"
+                        android:layout_weight="1"
+                        android:layout_height="200dp">
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="130dp"
+                            android:padding="10dp"
+                            android:src="@drawable/services"
+                            android:scaleType="fitCenter"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:padding="8dp"
+                            android:text="Car services"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:orientation="vertical"
+                        android:layout_weight="1"
+                        android:id="@+id/nearest_places"
+                        android:clickable="true"
+                        android:background="@drawable/bg_button_menu"
+                        android:layout_height="200dp">
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="130dp"
+                            android:padding="10dp"
+                            android:src="@drawable/map_icon"
+                            android:scaleType="fitCenter"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:padding="8dp"
+                            android:text="Nearest places"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:orientation="vertical"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:background="@drawable/bg_button_menu"
+                        android:layout_height="200dp">
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="130dp"
+                            android:padding="10dp"
+                            android:src="@drawable/notifications"
+                            android:scaleType="fitCenter"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:padding="8dp"
+                            android:text="Car Event notifications"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+
+
+
+            </LinearLayout>
+
+
+
+
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

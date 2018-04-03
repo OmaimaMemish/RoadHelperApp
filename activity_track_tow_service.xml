@@ -1,0 +1,155 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/ss"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:background="@color/lightBlue"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+
+
+    tools:context="app.com.roadhelper.TrackTowService">
+
+    <!-- Login progress -->
+    <ProgressBar
+        android:id="@+id/login_progress"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:visibility="gone" />
+
+    <ImageView       android:layout_width="match_parent"
+        android:layout_height="180dp"
+
+        android:paddingTop="60dp"
+        android:src="@drawable/helper_logo_full"/>
+
+
+    <ScrollView
+        android:id="@+id/login_form"
+        android:layout_width="match_parent"
+
+
+
+        android:layout_marginTop="40px"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:background="@color/colorAccentLightBlue"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+
+
+
+            <LinearLayout
+                android:id="@+id/email_login_form"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="28sp"
+                    android:textStyle="bold"
+                    android:text="Tow truck  : "
+                    android:layout_gravity="center"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:layout_marginBottom="8dp"
+                    />
+
+
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:layout_margin="10dp"
+android:gravity="center"
+                    android:text="Location : "
+                    />
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_margin="10dp"
+                    android:inputType="text"
+                    android:drawableLeft="@android:drawable/ic_dialog_map"
+                    android:background="#ececec"
+                    android:nextFocusLeft="@id/ss"
+                    android:textSize="16sp"
+                    android:drawablePadding="8dp"
+                    android:id="@+id/location"
+                    android:gravity="center_vertical"
+                    android:textAlignment="gravity"
+                    android:padding="10dp"
+                    android:hint="Your location here.."
+                    android:layout_height="40dp"
+                    />
+
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:layout_margin="10dp"
+                    android:gravity="center"
+                    android:text="Destination : "
+                    />
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_margin="10dp"
+                    android:inputType="text"
+                    android:drawableLeft="@android:drawable/ic_dialog_map"
+                    android:background="#ececec"
+                    android:nextFocusLeft="@id/ss"
+                    android:textSize="16sp"
+                    android:drawablePadding="8dp"
+                    android:id="@+id/detination"
+                    android:gravity="center_vertical"
+                    android:textAlignment="gravity"
+                    android:padding="10dp"
+                    android:hint="Your destination here.."
+                    android:layout_height="40dp"
+                    />
+
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"                    android:background="#ececec"
+android:textColor="#294e8e"
+
+                    android:textSize="18sp"
+                    android:layout_margin="10dp"
+                    android:gravity="center"
+                    android:text="Starting with 80 S.R  , 1.25 S.R/Km "
+                    />
+
+
+
+
+
+
+
+            </LinearLayout>
+            <Button
+                android:id="@+id/email_sign_in_button"
+                style="?android:textAppearanceSmall"
+                android:layout_width="match_parent"
+                android:background="#a7e0a5"
+                android:layout_margin="20dp"
+                android:textColor="#365c7b"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:textSize="18sp"
+                android:text="Send"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
