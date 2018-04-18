@@ -57,74 +57,10 @@
                     android:layout_marginTop="8dp"
                     android:textColor="@color/colorPrimary"
                     android:gravity="center"
-                    android:text="Changing a tire"
+                    android:text="Changing a tire 3"
                     android:textSize="28sp"
                     android:textStyle="bold" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="9dp"
-                    android:orientation="vertical"
-                    android:padding="8dp">
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="140dp"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/t1" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:padding="9dp"
-                        android:text="Most models store these two items in a compartment underneath the floor of the trunk. Carefully lift the spare tire and place it on the ground in close proximity to the flat tire. Car jacks usually have a built in lug wrench. Remove the lug wrench from the jack and use it to loosen the hub cap on the tire that is damaged. Once the hub cap is removed, place it to the side." />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="9dp"
-                    android:orientation="vertical"
-                    android:padding="8dp">
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="140dp"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/t2" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:padding="9dp"
-                        android:text="It is important to complete this step before using the jack to lift the wheel. Place the lug wrench onto each nut and apply pressure to the handle in a counter clockwise fashion. Only loosen the nuts, do not remove them completely. If you have trouble loosening a lug nut, use your foot or knee to gain leverage on the handle of the lug wrench." />
-
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="9dp"
-                    android:orientation="vertical"
-                    android:padding="8dp">
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="140dp"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/t3" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:padding="9dp"
-                        android:text="Position the jack on a strong part of your vehicle’s frame. You vehicle’s owner manual will give specific information about the proper placement of the jack on your particular vehicle. Turn the jack in a clockwise fashion by hand until it meets the vehicle. Then, use the jack’s handle to continue to turn in a clockwise fashion until the damaged tire is several inches above the ground." />
-
-                </LinearLayout>
 
 
                 <LinearLayout

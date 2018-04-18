@@ -79,6 +79,7 @@ android:gravity="center"
                     android:inputType="text"
                     android:drawableLeft="@android:drawable/ic_dialog_map"
                     android:background="#ececec"
+
                     android:nextFocusLeft="@id/ss"
                     android:textSize="16sp"
                     android:drawablePadding="8dp"
@@ -100,10 +101,21 @@ android:gravity="center"
                     android:gravity="center"
                     android:text="Destination : "
                     />
+
+                <Button
+                    android:id="@+id/pick_tow_dest"
+                    style="?android:textAppearanceSmall"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:text="clickto select destination.."
+                  />
+
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_margin="10dp"
                     android:inputType="text"
+                   android:enabled="false"
                     android:drawableLeft="@android:drawable/ic_dialog_map"
                     android:background="#ececec"
                     android:nextFocusLeft="@id/ss"
@@ -113,7 +125,7 @@ android:gravity="center"
                     android:gravity="center_vertical"
                     android:textAlignment="gravity"
                     android:padding="10dp"
-                    android:hint="Your destination here.."
+                    android:hint=" select destination.."
                     android:layout_height="40dp"
                     />
 
@@ -128,10 +140,21 @@ android:textColor="#294e8e"
                     android:textSize="18sp"
                     android:layout_margin="10dp"
                     android:gravity="center"
-                    android:text="Starting with 80 S.R  , 1.25 S.R/Km "
+                    android:text="Starting with 60 S.R  , 1.25 S.R/Km "
                     />
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:background="#dcdcdc"
+                    android:textColor="#294e8e"
+android:id="@+id/your_cost"
+                    android:textSize="22sp"
+                    android:layout_margin="10dp"
+                    android:gravity="center"
 
+                    />
 
 
 
@@ -139,7 +162,7 @@ android:textColor="#294e8e"
 
             </LinearLayout>
             <Button
-                android:id="@+id/email_sign_in_button"
+                android:id="@+id/send_tow"
                 style="?android:textAppearanceSmall"
                 android:layout_width="match_parent"
                 android:background="#a7e0a5"

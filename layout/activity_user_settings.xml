@@ -1,0 +1,243 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/ss"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:background="@color/lightBlue"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+
+
+    tools:context="app.com.roadhelper.LoginActivity">
+
+
+
+    <ImageView       android:layout_width="match_parent"
+        android:layout_height="100dp"
+
+        android:paddingTop="30dp"
+        android:src="@drawable/helper_logo_full"/>
+<TextView
+    android:layout_width="match_parent"
+    android:gravity="center"
+    android:text="Settings"
+    android:layout_height="wrap_content" />
+
+    <ScrollView
+        android:id="@+id/login_form"
+        android:layout_width="match_parent"
+
+
+
+        android:layout_marginTop="40px"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:background="@color/colorAccentLightBlue"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+
+
+
+            <LinearLayout
+                android:id="@+id/email_login_form"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:padding="5dp"
+                    android:layout_margin="5dp"
+android:layout_weight="1.2"
+                    android:layout_height="40dp"
+                    android:scaleType="fitCenter"
+android:src="@drawable/profile"
+                    />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_margin="5dp"
+                        android:inputType="textEmailAddress"
+                        android:background="#fff"
+                        android:nextFocusLeft="@id/ss"
+                        android:textSize="16sp"
+                        android:clickable="true"
+                        android:id="@+id/user_name"
+                        android:text="Tasneem"
+                        android:textAlignment="gravity"
+                        android:padding="5dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="0.6"/>
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:padding="5dp"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1.2"
+
+                        android:layout_height="40dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/move"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:padding="5dp"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1.2"
+                        android:layout_height="40dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/mobile"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_margin="5dp"
+                        android:inputType="textEmailAddress"
+                        android:background="#fff"
+                        android:nextFocusLeft="@id/ss"
+                        android:textSize="16sp"
+                        android:id="@+id/user_phone"
+                        android:clickable="true"
+                        android:text="Tasneem"
+                        android:textAlignment="gravity"
+                        android:padding="5dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="0.6"/>
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:padding="5dp"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1.2"
+
+                        android:layout_height="40dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/move"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:padding="5dp"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1.2"
+                        android:layout_height="40dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/email"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_margin="5dp"
+                        android:clickable="true"
+                        android:inputType="textEmailAddress"
+                        android:background="#fff"
+                        android:nextFocusLeft="@id/ss"
+                        android:textSize="16sp"
+                        android:id="@+id/user_email"
+                        android:text="Tasneem"
+                        android:textAlignment="gravity"
+                        android:padding="5dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="0.6"/>
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:padding="5dp"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1.2"
+
+                        android:layout_height="40dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/move"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:padding="5dp"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1.2"
+                        android:layout_height="40dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/lock"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_margin="5dp"
+                        android:inputType="textEmailAddress"
+                        android:background="#fff"
+                        android:nextFocusLeft="@id/ss"
+                        android:textSize="16sp"
+                        android:clickable="true"
+                        android:id="@+id/user_password"
+                        android:text="Change Password"
+                        android:textAlignment="gravity"
+                        android:padding="5dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="0.6"/>
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:padding="5dp"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1.2"
+
+                        android:layout_height="40dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/move"
+                        />
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+
+            <Button
+                android:id="@+id/go_signout"
+                android:layout_width="match_parent"
+                android:background="@android:color/transparent"
+                android:layout_margin="20dp"
+                android:textColor="#365c7b"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:textSize="13sp"
+                android:text="Sign out"
+                />
+
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

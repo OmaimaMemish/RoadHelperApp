@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="app.com.roadhelper.NotificationsActivity">
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="10dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/add_new_alarm"
+        android:layout_marginBottom="10dp"
+        android:src="@android:drawable/ic_input_add"
+        />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#fff"
+        android:layout_above="@+id/delete_all"
+       android:layout_below="@+id/add_new_alarm"
+        android:nestedScrollingEnabled="false"
+        android:scrollbars="vertical"
+        />
+    
+<Button
+    android:layout_width="match_parent"
+    android:layout_marginTop="10dp"
+
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:id="@+id/delete_all"
+    android:text="Delete all"
+    />
+    
+    
+</RelativeLayout>

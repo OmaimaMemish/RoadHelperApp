@@ -67,12 +67,13 @@
                     android:layout_width="match_parent"
                     android:background="#a9a9a9"
                     android:layout_margin="5dp"
+
                     android:textColor="#ffffff"
                     android:layout_height="wrap_content"
                     android:textSize="18sp"
                     android:drawableLeft="@android:drawable/ic_menu_help"
                     android:id="@+id/battery_jump"
-                    android:text="Jump start your battery : (50 S.R)"
+                    android:text="Jump start your battery : (30 S.R)"
                     android:textStyle="bold" />
 
                 <Button
@@ -86,7 +87,7 @@
                     android:layout_height="wrap_content"
                     android:textSize="18sp"
                     android:id="@+id/battery_change"
-                    android:text="Battery change : (100 S.R)"
+                    android:text="Battery change : (80 S.R)"
                     android:textStyle="bold" />
 
 

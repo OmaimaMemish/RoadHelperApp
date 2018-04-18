@@ -1,0 +1,102 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/ss"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:background="@color/lightBlue"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+
+
+    tools:context="app.com.roadhelper.LoginActivity">
+
+    <!-- Login progress -->
+    <ProgressBar
+        android:id="@+id/login_progress"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:visibility="gone" />
+
+    <ImageView       android:layout_width="match_parent"
+        android:layout_height="180dp"
+
+        android:paddingTop="20dp"
+        android:src="@drawable/helper_logo_full"/>
+
+
+    <ScrollView
+        android:id="@+id/login_form"
+        android:layout_width="match_parent"
+
+
+        android:layout_height="match_parent"
+        android:layout_marginTop="10px">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorAccentLightBlue"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:id="@+id/email_login_form"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginTop="8dp"
+                    android:textColor="@color/colorPrimary"
+                    android:gravity="center"
+                    android:text="Changing a tire 1"
+                    android:textSize="28sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="9dp"
+                    android:orientation="vertical"
+                    android:padding="8dp">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="140dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/t1" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:padding="9dp"
+                        android:text="Most models store these two items in a compartment underneath the floor of the trunk. Carefully lift the spare tire and place it on the ground in close proximity to the flat tire. Car jacks usually have a built in lug wrench. Remove the lug wrench from the jack and use it to loosen the hub cap on the tire that is damaged. Once the hub cap is removed, place it to the side." />
+
+                </LinearLayout>
+
+
+                <Button
+                    style="?android:textAppearanceSmall"
+                    android:layout_width="match_parent"
+                    android:background="#a7e0a5"
+                    android:layout_margin="5dp"
+
+                    android:textColor="#365c7b"
+                    android:id="@+id/done_btn"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:text="Next"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

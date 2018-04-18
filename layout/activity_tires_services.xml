@@ -10,7 +10,7 @@
     android:orientation="vertical"
 
 
-    tools:context="app.com.roadhelper.GasServices">
+    tools:context="app.com.roadhelper.TiresServices">
 
     <!-- Login progress -->
     <ProgressBar
@@ -55,74 +55,44 @@
                     android:layout_height="wrap_content"
                     android:textSize="28sp"
                     android:textStyle="bold"
-                    android:text="Gas Delivery : "
+                    android:text="Tires  : "
                     android:layout_gravity="center"
                     android:layout_marginTop="8dp"
                     android:gravity="center"
                     android:layout_marginBottom="8dp"
                     />
 
-
-                
-                <LinearLayout
+                <Button
+                    style="?android:textAppearanceSmall"
                     android:layout_width="match_parent"
+                    android:background="#a9a9a9"
+                    android:layout_margin="5dp"
+                    android:textColor="#ffffff"
                     android:layout_height="wrap_content"
-
-                    android:orientation="horizontal"
-                    android:weightSum="2">
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="150dp"
-                        android:src="@drawable/red_gas"
-                        android:layout_weight="1"
-                        />
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="150dp"
-                        android:src="@drawable/green_gas"
-                        android:layout_weight="1"
-                        />
-
-
-
-                </LinearLayout>
-
-
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="5dp"                    android:background="#ececec"
-                    android:textColor="#294e8e"
-
                     android:textSize="18sp"
-                    android:layout_margin="10dp"
-                    android:gravity="center"
-                    android:text="Service price : 50 SR "
-                    />
+                    android:drawableLeft="@android:drawable/ic_menu_help"
+                    android:id="@+id/spare_tire"
+                    android:text="Spare Tire installation : (30 S.R)"
+                    android:textStyle="bold" />
 
+                <Button
+                    style="?android:textAppearanceSmall"
+                    android:layout_width="match_parent"
+                    android:background="#a9a9a9"
+                    android:layout_margin="5dp"
+                    android:drawableLeft="@android:drawable/ic_menu_help"
 
-
-
-
+                    android:textColor="#ffffff"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:id="@+id/tire_repair"
+                    android:text="Tire repaire on site : (60 S.R)"
+                    android:textStyle="bold" />
 
 
 
 
             </LinearLayout>
-            <Button
-                android:id="@+id/email_sign_in_button"
-                style="?android:textAppearanceSmall"
-                android:layout_width="match_parent"
-                android:background="#a7e0a5"
-                android:layout_margin="20dp"
-                android:textColor="#365c7b"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
-                android:textSize="18sp"
-                android:text="Send"
-                android:textStyle="bold" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

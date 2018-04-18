@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_margin="10dp"
+    android:background="#a7e0a5"
+
+    android:layout_height="wrap_content">
+
+
+<TextView
+    android:layout_width="match_parent"
+    android:layout_margin="5dp"
+    android:textColor="#365c7b"
+    android:layout_height="wrap_content"
+    android:id="@+id/title"
+    />
+    <TextView
+    android:layout_width="match_parent"
+        android:textColor="#365c7b"
+        android:layout_margin="5dp"
+    android:layout_height="wrap_content"
+    android:id="@+id/details"
+    /> <TextView
+    android:layout_width="match_parent"
+    android:textColor="#365c7b"
+    android:layout_margin="5dp"
+    android:layout_height="wrap_content"
+    android:id="@+id/time"
+    />
+
+<Button
+    android:layout_width="match_parent"
+    android:layout_margin="5dp"
+    android:drawableLeft="@android:drawable/ic_input_delete"
+    android:layout_height="33dp"
+    android:textSize="12sp"
+    android:id="@+id/delete"
+    android:background="#fff"
+    android:textColor="#ff0000"
+    android:text="Delete this reminder"
+    />
+
+
+</LinearLayout>
