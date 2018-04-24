@@ -14,10 +14,11 @@ import app.com.roadhelper.HomeActivity;
 import app.com.roadhelper.R;
 
 /**
- * Created by Luminance on 4/11/2018.
+ * Created by HP on 4/11/2018.
  */
 public class MyReceiver extends BroadcastReceiver{
-
+//here were notification will be in the backend and when the time come it will trigger alarm notification to the user
+    //also determine notification setting
     @Override
     public void onReceive(Context context, Intent intent) {
         //you might want to check what's inside the Intent
@@ -30,13 +31,15 @@ public class MyReceiver extends BroadcastReceiver{
             String type=intent.getStringExtra("type");
              DatabaseHelper db = new DatabaseHelper(context);
             if(db.searchData(id)){
+
+                //notification manager manages the notification setting as a popUp , ringtone and color
             NotificationManager mNotifyMgr =
                     (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-                Uri alarmSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM);
+                Uri alarmSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM);// that refers to sounds that are used for the alarm.
                 if(alarmSound == null){
-                    alarmSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_RINGTONE);
+                    alarmSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_RINGTONE);//refers to the type of sounds that are suitable for the phone ringer.
                     if(alarmSound == null){
-                        alarmSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+                        alarmSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);//Type that refers to sounds that are used for notifications
                     }
                 }
             NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(context)

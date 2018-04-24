@@ -1,5 +1,6 @@
 package app.com.roadhelper;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -18,7 +19,7 @@ import app.com.roadhelper.helper.APIUrl;
 import app.com.roadhelper.helper.ConnectionUtils;
 import app.com.roadhelper.helper.SharedPrefManager;
 
-public class SignupActivity extends RootActivity {
+public class SignupActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -93,7 +94,7 @@ public class SignupActivity extends RootActivity {
                     loading.dismiss();
                     String syn = answer.getString("status");
                     if(syn.equals("error")){
-                        Toast.makeText(SignupActivity.this, "failed to createaccount", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(SignupActivity.this, "Email already exists !", Toast.LENGTH_SHORT).show();
                     }else {
                         Toast.makeText(SignupActivity.this, "logged in succesfully", Toast.LENGTH_SHORT).show();
                         SharedPrefManager.getInstance(SignupActivity.this).userLogin(answer.getJSONObject("body"), password);

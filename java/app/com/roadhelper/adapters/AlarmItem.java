@@ -1,7 +1,7 @@
 package app.com.roadhelper.adapters;
 
 /**
- * Created by Luminance on 4/11/2018.
+ * Created by HP on 4/11/2018.
  */
 
 public class AlarmItem {

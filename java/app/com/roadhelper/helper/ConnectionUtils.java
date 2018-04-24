@@ -33,7 +33,7 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 /**
- * Created by Luminance on 2/11/2018.
+ * Created by HP on 2/11/2018.
  */
 
 public class ConnectionUtils {
@@ -45,7 +45,7 @@ public class ConnectionUtils {
         return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 
-    public static String sendPostRequest(String requestURL,
+    public static String sendPostRequest(String requestURL, // send req to server
                                   HashMap<String, String> params) {
 
         String response = "";

@@ -15,13 +15,13 @@ public class TiresServices extends RootActivity {
         findViewById(R.id.spare_tire).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                RequestsHandler.sendRequest(TiresServices.this , "Spare tire installation" ,"");
+                RequestsHandler.getInstance(TiresServices.this).sendRequest(TiresServices.this , "Spare tire installation" ,"","30" ,0);
             }
         });
         findViewById(R.id.tire_repair).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                RequestsHandler.sendRequest(TiresServices.this , "Tire repair" ,"");
+                RequestsHandler.getInstance(TiresServices.this).sendRequest(TiresServices.this , "Tire repair" ,"" ,"60" ,0);
             }
         });
     }

@@ -1,7 +1,7 @@
 package app.com.roadhelper.adapters;
 
 /**
- * Created by Luminance on 2/24/2018.
+ * Created by HP on 2/24/2018.
  */
 
 
@@ -95,7 +95,7 @@ public class CustomersAdapter extends RecyclerView.Adapter<CustomersAdapter.MyVi
 //        });
 
 
-    }
+    }//converting time to milliseconds
     public static String getDate(long milliSeconds, String dateFormat)
     {
         // Create a DateFormatter object for displaying date in specified format.

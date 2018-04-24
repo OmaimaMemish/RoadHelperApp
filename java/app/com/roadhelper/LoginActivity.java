@@ -45,9 +45,9 @@ import app.com.roadhelper.helper.SharedPrefManager;
 
 import static android.Manifest.permission.READ_CONTACTS;
 
-/**
- * A login screen that offers login via email/password.
- */
+
+ // A login screen that offers login via email/password.
+
 public class LoginActivity extends Activity  {
 
     /**
@@ -60,6 +60,7 @@ public class LoginActivity extends Activity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        //butt Login
         ((Button)findViewById(R.id.go_login)).setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -88,13 +89,13 @@ public class LoginActivity extends Activity  {
             }
         });
 
-        findViewById(R.id.go_forget).setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(LoginActivity.this, "Sending new password to the email..", Toast.LENGTH_SHORT).show();
+     //   findViewById(R.id.go_forget).setOnClickListener(new OnClickListener() {
+          //  @Override
+           // public void onClick(View v) {
+           //     Toast.makeText(LoginActivity.this, "Sending new password to the email..", Toast.LENGTH_SHORT).show();
 
-            }
-        });
+        /////    }
+      //  });
 
 
 
@@ -105,18 +106,12 @@ public class LoginActivity extends Activity  {
      * Callback received when a permissions request has been completed.
      */
 
-
-    JSONObject answer;
-
-    public void connect(final String email , final String password) {
+    public void forget(final String email) {
         class JsonOpener extends AsyncTask<String, Void, String> {
-            ProgressDialog loading = new ProgressDialog(LoginActivity.this);
             boolean cont =true;
             @Override
             protected void onPreExecute() {
 
-                loading.setTitle("signing in");
-                loading.show();;
                 super.onPreExecute();
 
             }
@@ -125,17 +120,11 @@ public class LoginActivity extends Activity  {
             protected void onPostExecute(String s) {
                 super.onPostExecute(s);
                 try {
-                    loading.dismiss();
                     String syn = answer.getString("status");
                     if(syn.equals("error")){
-                        Toast.makeText(LoginActivity.this, "Failed to sign in", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this, "Failed to gain new password", Toast.LENGTH_SHORT).show();
                     }else {
-                        Toast.makeText(LoginActivity.this, "Logged in succesfully", Toast.LENGTH_SHORT).show();
-                        SharedPrefManager.getInstance(LoginActivity.this).userLogin(answer.getJSONObject("body"), password);
-                        startActivity(new Intent(LoginActivity.this , MapsActivity.class));
-                       // startActivity(intent);
-                        finish();
-
+                        Toast.makeText(LoginActivity.this, "Password reset now !", Toast.LENGTH_SHORT).show();
 
                     }}catch(Exception e){}
             }
@@ -145,9 +134,8 @@ public class LoginActivity extends Activity  {
                 //  BufferedReader bufferedReader = null;
                 try {
                     HashMap<String, String> pars = new HashMap<String, String>();
-                    pars.put("service" , "login");
+                    pars.put("service" , "res-password");
                     pars.put("email" , email);
-                    pars.put("password" , password);
                     String result =
                             ConnectionUtils.sendPostRequest(APIUrl.SERVER, pars);
 
@@ -157,6 +145,72 @@ public class LoginActivity extends Activity  {
                 }
 
                 return "Ready";
+
+
+            }
+
+
+        }
+        JsonOpener ru = new JsonOpener();
+        ru.execute();
+    }
+    JSONObject answer;
+
+    public void connect(final String email , final String password) {
+        //JsonOpener: to understand JSON by sending parameters to $service (in backend). (backend) will send response(JSON)
+        //AsyncTask: operate new task in new thread with out stopping another tasks
+
+        class JsonOpener extends AsyncTask<String, Void, String> {
+            // if we extends AsyncTask, we must implement 3 methods :
+            ProgressDialog loading = new ProgressDialog(LoginActivity.this);
+            boolean cont =true;
+            //before connecting to the server and sending the data to php Show login to inform user (waiting)
+            @Override
+            protected void onPreExecute() {
+                loading.setTitle("signing in");
+                loading.show();;
+                super.onPreExecute();
+            }
+
+            //act with the response (answer)
+            @Override
+            protected void onPostExecute(String s) {
+                super.onPostExecute(s);
+                try {
+                    loading.dismiss();//hide
+                    String syn = answer.getString("status");// error or success
+                    if(syn.equals("error")){
+                        Toast.makeText(LoginActivity.this, "Failed to sign in", Toast.LENGTH_SHORT).show();
+                    }else {
+                        Toast.makeText(LoginActivity.this, "Logged in succesfully", Toast.LENGTH_SHORT).show();
+                        //store signIn data in device. like cookies
+                        SharedPrefManager.getInstance(LoginActivity.this).userLogin(answer.getJSONObject("body"), password);
+                        // go from "LoginActivity" to "MapsActivity"
+                        startActivity(new Intent(LoginActivity.this , MapsActivity.class));
+                        finish();
+                    }}catch(Exception e){}
+            }
+
+            //send parameters to backend (db)
+            @Override
+            protected String doInBackground(String... params) {
+                //  BufferedReader bufferedReader = null;
+                try {
+                    //Prepare request
+                    HashMap<String, String> pars = new HashMap<String, String>();
+                    pars.put("service" , "login"); //type of service (we have 4 services in backend)
+                    pars.put("email" , email);
+                    pars.put("password" , password);
+                    //send request
+                    String result =
+                            ConnectionUtils.sendPostRequest(APIUrl.SERVER, pars);
+
+                    answer = new JSONObject(result); //response
+                } catch (Exception e) {
+                    System.out.println("fetching cats error : " + e.getMessage());
+                }
+
+                return "Ready";// then  :  onPostExecute
 
 
             }

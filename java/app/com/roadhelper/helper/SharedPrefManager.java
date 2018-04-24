@@ -1,7 +1,7 @@
 package app.com.roadhelper.helper;
 
 /**
- * Created by Luminance on 1/18/2018.
+ * Created by HP on 1/18/2018.
  */
 
 import android.content.Context;
@@ -27,6 +27,11 @@ public class SharedPrefManager {
     private static final String KEY_USER_EMAIL = "keyusertokenpassword";
 
 
+/*
+A style used to create only one object of the class means that every time you want to access any of the class functions,
+the same object is used in the memory and no new one is created.
+This mode prevents the object from being created directly by doing a private constructor for the class..
+ */
 
 
 
@@ -54,6 +59,7 @@ public class SharedPrefManager {
         return true;
     }
     public User getUser() {
+        //By setting this mode, the file can only be accessed using calling application...
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         return new User(
                 sharedPreferences.getString(KEY_USER_ID, null),

@@ -10,7 +10,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 /**
- * Created by Luminance on 4/13/2018.
+ * Created by HP on 4/13/2018.
  */
 
 public class DownloadUrl {

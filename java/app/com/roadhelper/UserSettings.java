@@ -23,7 +23,7 @@ import app.com.roadhelper.helper.SharedPrefManager;
 
 public class UserSettings extends RootActivity {
 
-
+    //2.Second
     public void Edit(final String col ,final String title){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(title);
@@ -53,22 +53,6 @@ public class UserSettings extends RootActivity {
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     JSONObject answer;
 
     public void connect(final String col , final String val) {
@@ -76,6 +60,7 @@ public class UserSettings extends RootActivity {
             ProgressDialog loading = new ProgressDialog(UserSettings.this);
             boolean cont =true;
             @Override
+            //1.
             protected void onPreExecute() {
 
                 loading.setTitle("Updating account..");
@@ -85,6 +70,7 @@ public class UserSettings extends RootActivity {
             }
 
             @Override
+            //3.
             protected void onPostExecute(String s) {
                 super.onPostExecute(s);
                 try {
@@ -103,8 +89,8 @@ public class UserSettings extends RootActivity {
             }
 
             @Override
+            //2.
             protected String doInBackground(String... params) {
-                //  BufferedReader bufferedReader = null;
                 try {
                     HashMap<String, String> pars = new HashMap<String, String>();
                     pars.put("service" , "edit");
@@ -131,19 +117,23 @@ public class UserSettings extends RootActivity {
         ru.execute();
     }
 
-
-
-
-
-
-
-
+//------------------------------------------------------------------------------------------------
+//1.first
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        /*If you save the state of the application in a bundle (typically non-persistent, dynamic data in onSaveInstanceState),
+         it can be passed back to onCreate if the activity needs to be recreated (e.g., orientation change)
+        so that you don't lose this prior information. If no data was supplied, savedInstanceState is null.
+         */
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_settings);
-
+/*Android provides many ways of storing data of an application. One of this way is called Shared Preferences.
+        It's allow you to save and retrieve data in the form of key,value pair.
+        In order to use shared preferences, you have to call a method getSharedPreferences()
+        that returns a SharedPreference instance pointing to the file that contains the values of preferences.
+*/
         ((TextView)findViewById(R.id.user_name)).setText(SharedPrefManager.getInstance(this).getUser().getName());
         ((TextView)findViewById(R.id.user_email)).setText(SharedPrefManager.getInstance(this).getUser().getEmail());
         ((TextView)findViewById(R.id.user_phone)).setText(SharedPrefManager.getInstance(this).getUser().getPhone());
@@ -179,6 +169,9 @@ public class UserSettings extends RootActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(UserSettings.this , LoginActivity.class);
+                /*This clears any existing task that would be associated with the Activity before the Activity is started.
+                 This Activity then becomes the new root of the task and old Activities are finished. */
+
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
                 finish();

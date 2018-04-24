@@ -57,7 +57,7 @@ public class NearbyStuffMap extends RootActivity implements OnMapReadyCallback,
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nearby_stuff_map);
-        search_type = getIntent().getStringExtra("type");
+        search_type = getIntent().getStringExtra("type");// get the type of nearest place that user want to search for ...
 
         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             checkLocationPermission();
@@ -92,15 +92,7 @@ public class NearbyStuffMap extends RootActivity implements OnMapReadyCallback,
     }
 
 
-    /**
-     * Manipulates the map once available.
-     * This callback is triggered when the map is ready to be used.
-     * This is where we can add markers or lines, add listeners or move the camera. In this case,
-     * we just add a marker near Sydney, Australia.
-     * If Google Play services is not installed on the device, the user will be prompted to install
-     * it inside the SupportMapFragment. This method will only be triggered once the user has
-     * installed Google Play services and returned to the app.
-     */
+
 
     public void locate(){
         Log.d("onClick", "Button is Clicked");
@@ -112,14 +104,21 @@ public class NearbyStuffMap extends RootActivity implements OnMapReadyCallback,
         Log.d("onClick", url);
         GetNearbyPlacesData getNearbyPlacesData = new GetNearbyPlacesData();
         getNearbyPlacesData.execute(DataTransfer);
-        Toast.makeText(NearbyStuffMap.this,"Nearby "+search_type, Toast.LENGTH_LONG).show();
+        Toast.makeText(NearbyStuffMap.this,"Nearby "+search_type, Toast.LENGTH_LONG).show();// below dialog of type shown
     }
 
-
+    /**
+     * Manipulates the map once available.
+     * This callback is triggered when the map is ready to be used.
+     * This is where we can add markers or lines, add listeners or move the camera. In this case,
+     * we just add a marker near Sydney, Australia.
+     * If Google Play services is not installed on the device, the user will be prompted to install
+     * it inside the SupportMapFragment. This method will only be triggered once the user has
+     * installed Google Play services and returned to the app.
+     */
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-       // mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
 
         //Initialize Google Play Services
         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -138,56 +137,14 @@ public class NearbyStuffMap extends RootActivity implements OnMapReadyCallback,
 
 
 
-
-
-
-        Button btnRestaurant = (Button) findViewById(R.id.btnRestaurant);
-        btnRestaurant.setOnClickListener(new View.OnClickListener() {
-            String Restaurant = "restaurant";
+        Button btnRefresh = (Button) findViewById(R.id.btnRefresh);
+        btnRefresh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
           locate();
             }
         });
-//
-//        Button btnHospital = (Button) findViewById(R.id.btnHospital);
-//        btnHospital.setOnClickListener(new View.OnClickListener() {
-//            String Hospital = "hospital";
-//            @Override
-//            public void onClick(View v) {
-//                Log.d("onClick", "Button is Clicked");
-//                mMap.clear();
-//                String url = getUrl(latitude, longitude, Hospital);
-//                Object[] DataTransfer = new Object[2];
-//                DataTransfer[0] = mMap;
-//                DataTransfer[1] = url;
-//                Log.d("onClick", url);
-//                GetNearbyPlacesData getNearbyPlacesData = new GetNearbyPlacesData();
-//                getNearbyPlacesData.execute(DataTransfer);
-//                Toast.makeText(NearbyStuffMap.this,"Nearby Hospitals", Toast.LENGTH_LONG).show();
-//            }
-//        });
-//
-//        Button btnSchool = (Button) findViewById(R.id.btnSchool);
-//        btnSchool.setOnClickListener(new View.OnClickListener() {
-//            String School = "school";
-//            @Override
-//            public void onClick(View v) {
-//                Log.d("onClick", "Button is Clicked");
-//                mMap.clear();
-//                if (mCurrLocationMarker != null) {
-//                    mCurrLocationMarker.remove();
-//                }
-//                String url = getUrl(latitude, longitude, School);
-//                Object[] DataTransfer = new Object[2];
-//                DataTransfer[0] = mMap;
-//                DataTransfer[1] = url;
-//                Log.d("onClick", url);
-//                GetNearbyPlacesData getNearbyPlacesData = new GetNearbyPlacesData();
-//                getNearbyPlacesData.execute(DataTransfer);
-//                Toast.makeText(NearbyStuffMap.this,"Nearby Schools", Toast.LENGTH_LONG).show();
-//            }
-//        });
+
     }
 
     protected synchronized void buildGoogleApiClient() {
@@ -221,8 +178,8 @@ public class NearbyStuffMap extends RootActivity implements OnMapReadyCallback,
         googlePlacesUrl.append("&radius=" + PROXIMITY_RADIUS);
         googlePlacesUrl.append("&type=" + nearbyPlace);
         googlePlacesUrl.append("&sensor=true");
-        //googlePlacesUrl.append("&key=" + "AIzaSyDW7RWuqZTlB8fDyxEYTC3FIAOTVgs_0fg");
-        googlePlacesUrl.append("&key=" + "AIzaSyATuUiZUkEc_UgHuqsBJa1oqaODI-3mLs0");
+
+        googlePlacesUrl.append("&key=" + "AIzaSyCLrriw0mHRS67S9tr3ESepKZoPby1CGTw");// neeew key
         Log.d("getUrl", googlePlacesUrl.toString());
         return (googlePlacesUrl.toString());
     }

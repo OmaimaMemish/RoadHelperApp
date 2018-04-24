@@ -15,14 +15,14 @@ public class GasServices extends RootActivity {
         findViewById(R.id.send_red).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                RequestsHandler.sendRequest(GasServices.this , "Gas 95 delivery" ,"");
+                RequestsHandler.getInstance(GasServices.this).sendRequest(GasServices.this , "Gas 95 delivery" ,"" ,"30",0);
             }
         });
 
         findViewById(R.id.send_green).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                RequestsHandler.sendRequest(GasServices.this , "Gas 91 delivery" ,"");
+                RequestsHandler.getInstance(GasServices.this).sendRequest(GasServices.this , "Gas 91 delivery" ,"" ,"30" ,0);
             }
         });
     }

@@ -7,7 +7,7 @@ import android.view.ViewParent;
 import android.widget.TimePicker;
 
 /**
- * Created by Luminance on 4/11/2018.
+ * Created by HP on 4/11/2018.
  */
 
 public class CustomTimePicker extends TimePicker {

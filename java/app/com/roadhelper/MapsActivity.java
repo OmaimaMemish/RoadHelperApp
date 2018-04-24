@@ -65,7 +65,7 @@ public int DISTANCE=20000;
 ArrayList<StringPair> database;
 
 
-
+    // "Go to NearbyStuffMap ...
     public void searchVoice(String word){
        word =  word.toLowerCase().trim();
         for(StringPair p : database){
@@ -96,7 +96,8 @@ ArrayList<StringPair> database;
 
 
         database = new ArrayList<StringPair>();
-        database.add(new StringPair("car_repair" ,"repair shop"));       database.add(new StringPair("car_repair" ,"work shop"));
+        database.add(new StringPair("car_repair" ,"repair shop"));
+        database.add(new StringPair("car_repair" ,"work shop"));
         database.add(new StringPair("car_repair" ,"car shop"));
         database.add(new StringPair("car_repair" ,"auto shop"));
         database.add(new StringPair("car_repair" ,"auto repair"));
@@ -130,9 +131,9 @@ ArrayList<StringPair> database;
         database.add(new StringPair("gas_station" ,"gas station"));
         database.add(new StringPair("gas_station" ,"diesel station"));
 
-
+        // I want to link this object to the button of voice by it's ID..
         btnSpeak = (ImageButton) findViewById(R.id.btnSpeak);
-
+        // When user click the Image button of voice search..
         btnSpeak.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -143,9 +144,16 @@ ArrayList<StringPair> database;
 
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
 
-        mapFrag = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
-        mapFrag.getMapAsync(this);
+        mapFrag = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);// get fragment by "map" as ID of frag...
 
+        mapFrag.getMapAsync(this);// prepare map into the fragment...
+
+        findViewById(R.id.show_hints).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MapsActivity.this,HinstActivity.class));
+            }
+        });
         findViewById(R.id.show_menu).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -154,21 +162,27 @@ ArrayList<StringPair> database;
         });
 
 
-//        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-//                .findFragmentById(R.id.map);
-//        mapFragment.getMapAsync(this);
+
     }
     /**
      * Showing google speech input dialog
      * */
     private void promptSpeechInput() {
+        // we want the application to record the sound in the language according to the language we specify...
+        //1.Starts an activity that will prompt the user for speech and send it through a speech recognizer.
         Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
-        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,
-                RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
+        //2.It's Inform the recognizer which speech model to prefer when performing
+        // and we Considers input in free form English...
+        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
+        //3.Set the Default language of android in speech recognition...
         intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault());
-        intent.putExtra(RecognizerIntent.EXTRA_PROMPT,
-                getString(R.string.speech_prompt));
+        //4. Text prompt to show to the user when asking them to speak...
+        intent.putExtra(RecognizerIntent.EXTRA_PROMPT, getString(R.string.speech_prompt));
         try {
+            //Getting a Result from an Activity
+            //"request code" that identifies your request. When you receive the result Intent, the callback
+            // provides the same request code so that your app can properly identify the result and determine how to handle it.
+
             startActivityForResult(intent, REQ_CODE_SPEECH_INPUT);
         } catch (ActivityNotFoundException a) {
             Toast.makeText(getApplicationContext(),
@@ -188,7 +202,9 @@ ArrayList<StringPair> database;
         super.onActivityResult(requestCode, resultCode, data);
 
         switch (requestCode) {
+            // Check which request it is that we're responding to
             case REQ_CODE_SPEECH_INPUT: {
+                // Make sure the request was successful
                 if (resultCode == RESULT_OK && null != data) {
 
                     ArrayList<String> result = data
@@ -201,192 +217,14 @@ ArrayList<StringPair> database;
         }
     }
 
-    /**
-     * Manipulates the map once available.
-     * This callback is triggered when the map is ready to be used.
-     * This is where we can add markers or lines, add listeners or move the camera. In this case,
-     * we just add a marker near Sydney, Australia.
-     * If Google Play services is not installed on the device, the user will be prompted to install
-     * it inside the SupportMapFragment. This method will only be triggered once the user has
-     * installed Google Play services and returned to the app.
-     */
-
-
-
     public void searchByVoice(String adderess){
         Toast.makeText(this, "Locating " + adderess, Toast.LENGTH_SHORT).show();
         searchVoice(adderess);
-      //  Geocoder geoCoder = new Geocoder(this, Locale.getDefault());
 
-//            mMap.clear();
-//               if(lmr!=null) {
-//                   List<Address> addresses = geoCoder.getFromLocationName(adderess, 5);
-//                   if (addresses.size() > 0)
-//                   {
-//                       Double lat = (double) (addresses.get(0).getLatitude());
-//                       Double lon = (double) (addresses.get(0).getLongitude());
-//
-//                       Log.d("lat-long", "" + lat + "......." + lon);
-//                       final LatLng user = new LatLng(lat, lon);
-//
-//
-//                       Location target = new Location(lmr.getProvider());
-//                       target.setLongitude(lon);
-//                       target.setLatitude(lat);
-//
-//                       if(lmr.distanceTo(target)<DISTANCE){
-//
-//                           mMap.addMarker(new MarkerOptions()
-//                                   .position(user)
-//                                   .title(adderess));
-//                       }else{
-//                           Toast.makeText(this, "No nearby places found !", Toast.LENGTH_SHORT).show();
-//                       }
-//
-//                       // Move the camera instantly to hamburg with a zoom of 15.
-//                      // mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(user, 15));
-//                       // Zoom in, animating the camera.
-//                   //    mMap.animateCamera(CameraUpdateFactory.zoomTo(10), 2000, null);
-//                   LatLng sydney = new LatLng(lmr.getLatitude(), lmr.getLongitude());
-//
-//                       CircleOptions circleOptions = new CircleOptions()
-//                               .center(sydney)
-//                               .radius(DISTANCE)
-//                               .strokeWidth(2)
-//                               .strokeColor(Color.BLUE)
-//                               .fillColor(Color.parseColor("#500084d3"));
-//                       mMap.addCircle(circleOptions);
-//                   mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Saudi  Arabia"));
-//                   //
-//                   CameraPosition cam = new CameraPosition.Builder().target(sydney)
-//                           .zoom(10)
-//                           .build();
-//                   mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cam));
-//               }
-//                   else{
-//                       Toast.makeText(this, "No results found for " + adderess, Toast.LENGTH_SHORT).show();
-//                   }
-//
-//            }else{
-//                   Toast.makeText(this, "your location is unknown yet ! try again please", Toast.LENGTH_SHORT).show();
-//               }
 
     }
 
 
-
-
-//    @Override
-//    public void onRequestPermissionsResult(int requestCode,
-//                                           String permissions[], int[] grantResults) {
-//        switch (requestCode) {
-//            case 1: {
-//
-//                // If request is cancelled, the result arrays are empty.
-//                if (grantResults.length > 0
-//                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-//
-//                    init();
-//
-//                } else {
-//
-//                    // permission denied, boo! Disable the
-//                    // functionality that depends on this permission.
-//                    Toast.makeText(MapsActivity.this, "لا يمكن المتابعة بدون هذه السماحية", Toast.LENGTH_SHORT).show();
-//                    finish();
-//                }
-//                return;
-//            }
-//
-//            // other 'case' lines to check for other
-//            // permissions this app might request
-//        }}
-
-
-//    Location lmr;
-//  public void init(){
-//
-//      Toast.makeText(this, "Preparing map.. ", Toast.LENGTH_SHORT).show();
-//findViewById(R.id.my_location).setOnClickListener(new View.OnClickListener() {
-//    @Override
-//    public void onClick(View v) {
-//        mMap.clear();
-//        if(lmr!=null) {
-//
-//// Move the camera instantly to hamburg with a zoom of 15.
-//                // mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(user, 15));
-//                // Zoom in, animating the camera.
-//                //    mMap.animateCamera(CameraUpdateFactory.zoomTo(10), 2000, null);
-//                LatLng sydney = new LatLng(lmr.getLatitude(), lmr.getLongitude());
-//
-//                CircleOptions circleOptions = new CircleOptions()
-//                        .center(sydney)
-//                        .radius(DISTANCE)
-//                        .strokeWidth(2)
-//                        .strokeColor(Color.BLUE)
-//                        .fillColor(Color.parseColor("#500084d3"));
-//                mMap.addCircle(circleOptions);
-//                mMap.addMarker(new MarkerOptions().position(sydney).title("Me"));
-//                //
-//                CameraPosition cam = new CameraPosition.Builder().target(sydney)
-//                        .zoom(10)
-//                        .build();
-//                mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cam));
-//    }else
-//            Toast.makeText(MapsActivity.this, "your location is unkown yet , try later..", Toast.LENGTH_SHORT).show();
-//
-//    }
-//});
-//
-//
-//
-//      String permission = Manifest.permission.ACCESS_COARSE_LOCATION;
-//      int res = getApplicationContext().checkCallingOrSelfPermission(permission);
-//      boolean b1= (res == PackageManager.PERMISSION_GRANTED);
-//
-//      LocationManager lm = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
-//      lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 1000, 0, new LocationListener() {
-//          @Override
-//          public void onLocationChanged(Location location) {
-//              lmr = location;
-//              // TODO Auto-generated method stub
-//
-//          }
-//          @Override
-//          public void onProviderDisabled(String provider) {
-//              // TODO Auto-generated method stub
-//          }
-//          @Override
-//          public void onProviderEnabled(String provider) {
-//              // TODO Auto-generated method stub
-//          }
-//          @Override
-//          public void onStatusChanged(String provider, int status,
-//                                      Bundle extras) {
-//              // TODO Auto-generated method stub
-//          }
-//      });
-//
-//      // Add a marker in Sydney and move the camera
-//
-//
-//
-//
-//
-//
-//
-//
-//
-////
-////      CameraPosition cam  = new CameraPosition.Builder().target(sydney)
-////              .zoom(10)
-////              .bearing(90)
-////              .tilt(40)
-////              .build();
-////      mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cam));
-//
-//  }
-//
 @Override
 public void onPause() {
     super.onPause();
@@ -427,18 +265,27 @@ public void onPause() {
         };
 
     };
+    /**
+     * Manipulates the map once available.
+     * This callback is triggered when the map is ready to be used.
+     * This is where we can add markers or lines, add listeners or move the camera. In this case,
+     * we just add a marker near Sydney, Australia.
+     * If Google Play services is not installed on the device, the user will be prompted to install
+     * it inside the SupportMapFragment. This method will only be triggered once the user has
+     * installed Google Play services and returned to the app.
+     */
     @Override
     public void onMapReady(GoogleMap googleMap) {
 
 
 
         mLocationRequest = new LocationRequest();
-        mLocationRequest.setInterval(120000); // two minute interval
-        mLocationRequest.setFastestInterval(120000);
-        mLocationRequest.setPriority(LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY);
+        mLocationRequest.setInterval(120000); // two minute interval in millisecond
+        mLocationRequest.setFastestInterval(120000); // in millisecond
+        mLocationRequest.setPriority(LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY);// block level accuracy
 
         mGoogleMap = googleMap;
-        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {// if remove it will give an error
             if (ContextCompat.checkSelfPermission(this,
                     Manifest.permission.ACCESS_FINE_LOCATION)
                     == PackageManager.PERMISSION_GRANTED) {
@@ -460,6 +307,8 @@ public void onPause() {
 
     public static final int MY_PERMISSIONS_REQUEST_LOCATION = 99;
     private void checkLocationPermission() {
+
+
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED) {
 

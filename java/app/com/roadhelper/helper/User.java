@@ -1,7 +1,7 @@
 package app.com.roadhelper.helper;
 
 /**
- * Created by Luminance on 2/27/2018.
+ * Created by HP on 2/27/2018.
  */
 
 public class User {

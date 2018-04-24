@@ -64,7 +64,12 @@ public class TrackTowService extends RootActivity {
         findViewById(R.id.send_tow).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                RequestsHandler.sendRequest(TrackTowService.this , "Tow truck" ,"");
+                if(dest_res!=null && !dest_res.equals(""))
+                RequestsHandler.getInstance(TrackTowService.this).sendRequest(TrackTowService.this , "Tow truck" ,
+
+                       dest_res ,cost ,0);
+                else
+                    Toast.makeText(TrackTowService.this, "please select destination first", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -103,24 +108,25 @@ public class TrackTowService extends RootActivity {
 
     }
 
-
-
-
-
+//----------------------------------------------------------------------------------------------------------------------------------
 
     public double calculationByDistance(LatLng StartP, LatLng EndP) {
         int Radius = 6371;// radius of earth in Km
+
         double lat1 = StartP.latitude;
         double lat2 = EndP.latitude;
+
         double lon1 = StartP.longitude;
         double lon2 = EndP.longitude;
+        //toRadians(double angdeg). Converts an angle measured in degrees to an approximately equivalent angle measured in radians
+        //distances between the two points ( end-start )
         double dLat = Math.toRadians(lat2 - lat1);
         double dLon = Math.toRadians(lon2 - lon1);
         double a = Math.sin(dLat / 2) * Math.sin(dLat / 2)
                 + Math.cos(Math.toRadians(lat1))
                 * Math.cos(Math.toRadians(lat2)) * Math.sin(dLon / 2)
                 * Math.sin(dLon / 2);
-        double c = 2 * Math.asin(Math.sqrt(a));
+        double c = 2 * Math.asin(Math.sqrt(a));// square root
         double valueResult = Radius * c;
         double km = valueResult / 1;
         DecimalFormat newFormat = new DecimalFormat("####");
@@ -133,8 +139,8 @@ public class TrackTowService extends RootActivity {
         return (Radius * c);
     }
 
-
-
+//-------------------------------------------------------------------------------------------------------------------------------------------
+    // onPause() fragment is no longer interacting with the user either because its activity is being paused or a fragment operation is
     @Override
     public void onPause() {
         super.onPause();
@@ -144,9 +150,13 @@ public class TrackTowService extends RootActivity {
             mFusedLocationClient.removeLocationUpdates(mLocationCallback);
         }
     }
-    LatLng latLng;
+    LatLng latLng;; // representing a pair of latitude and longitude coordinates, stored as degrees.
+
+    //---------------------------------------------------------------------------------------------------------
+
     private final static int PLACE_PICKER_REQUEST = 999;
     LocationCallback mLocationCallback = new LocationCallback(){
+        // id:location (start)
         @Override
         public void onLocationResult(LocationResult locationResult) {
             for (Location location : locationResult.getLocations()) {
@@ -166,8 +176,10 @@ public class TrackTowService extends RootActivity {
         };
 
     };
-
-
+//--------------------------------------------------------------------
+String dest_res="" , cost="";
+    // id:detination (start)
+    // cost id: your_cost
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -180,12 +192,16 @@ public class TrackTowService extends RootActivity {
                 Place place = PlacePicker.getPlace(this, data);
                 double latitude = place.getLatLng().latitude;
                 double   longitude = place.getLatLng().longitude;
+                dest_res="https://www.google.com/maps/?q="+latitude+","+longitude;
+
                  ((EditText)findViewById(R.id.detination)).setText(latitude + " " + longitude);
                 Toast.makeText(this, "place selected succesfully", Toast.LENGTH_SHORT).show();
-
+                //invok calculationByDistance
+                double cc  =Math.max(calculationByDistance(latLng,
+        new LatLng(latitude,longitude))*1.25 , 60.0 );
+                cost=cc+"";
                 ((TextView)findViewById(R.id.your_cost)).setText("Cost is " +
-                        String.format("%.2f S,R.",Math.max(calculationByDistance(latLng,
-                        new LatLng(latitude,longitude))*1.25 , 60.0 )));
+                        String.format("%.2f S,R.",cc));
             }catch (Exception e){
                 Toast.makeText(this, "error", Toast.LENGTH_SHORT).show();
 
@@ -196,7 +212,7 @@ public class TrackTowService extends RootActivity {
     }
 
 
-
+//-------------------------------------------------------------------------------------------
     public static final int MY_PERMISSIONS_REQUEST_LOCATION = 99;
     private void checkLocationPermission() {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
